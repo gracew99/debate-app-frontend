@@ -1,0 +1,53 @@
+h1 {
+  text-align: center;
+}
+img {
+  width: 25%;
+  height: 25%;
+}
+
+.debatecard {
+  text-align: center;
+  width: 75%;
+  height: 50%;
+  margin: auto;
+  padding-top: 15%;
+  padding-bottom: 15%;
+}
+
+.debatetopic {
+  text-align: center;
+  width: 75%;
+  height: 50%;
+  margin: auto;
+  padding-top: 15%;
+  padding-bottom: 15%;
+
+}
+
+.profilepic{
+  width: 30%;
+  height: 220px;
+  position: relative;
+  overflow: hidden;
+  margin-right: 10px;
+  margin-left: 10px;
+  border-radius: 50%;
+}
+
+.debateDetail {
+  text-align: center;
+  padding: 5%;
+  width: 75%;
+  margin: auto;
+}
+
+.meet {
+  text-align: left;
+  margin-left: 5%;
+}
+
+.bio {
+  text-align: left;
+  margin-left: 5%;
+}
