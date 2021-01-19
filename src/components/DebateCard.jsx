@@ -1,7 +1,14 @@
 import React from 'react'
+import { useHistory, useParams } from "react-router-dom";
 
-const currentUrl = window.location.href;
 function DebateCard(props) {
+    let history = useHistory();
+    let {id} = useParams();
+
+    async function getDetails() {
+        history.push(id+'/details');
+    }
+
 
     return (
         <div class="debatecard" style={{backgroundColor:props.color}}>
@@ -9,7 +16,7 @@ function DebateCard(props) {
             <h2>{props.topic}</h2>
             <img src={props.imgurl} alt="debate"></img>
             <p> {props.date}</p>
-            <a href={currentUrl+"hey"}>View details</a>
+            <div onClick={getDetails}>View details</div>
         </div>
     )
 }

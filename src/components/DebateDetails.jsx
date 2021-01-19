@@ -1,19 +1,42 @@
-import React from 'react'
+import React, { useState, useEffect} from 'react';
+import {useParams} from "react-router-dom"
+import axios from '../axios'
 
-function DebateDetails(props) {
+function DebateDetails() {
+
+
+    let { id } = useParams();
+    const [posts, setPosts] = useState([]);
+
+    useEffect(() => {
+        async function getDebates() {
+            const response = await axios.get('/v2/posts');
+            console.log(response.data);
+            setPosts(response.data);
+            return response;
+        }
+        getDebates();
+    }, [])
+    
+
     return (
-        <div className={"debateDetail"} style={{backgroundColor:props.color}}>
-            <h2>{props.person1 + " vs. " + props.person2}</h2>
-            <img src={props.person1img} class="profilepic" alt="person1"></img>
-            <img src={props.person2img} class="profilepic" alt="person2"></img>
-            <h2>{props.topic}</h2>
-            <p>{props.date}</p>
-            <h2 className={"meet"}>{"Meet " + props.person1.split(" ")[0]}</h2>
-            <p className={"bio"}>{props.person1description}</p>
-            <h2 className={"meet"}>{"Meet " + props.person2.split(" ")[0]}</h2>
-            <p className={"bio"}>{props.person2description}</p>
-            <a href="register"> Register </a>
+        <div>
+        {posts.map(post => 
+            <div className={"debateDetail"} style={{backgroundColor:post.color}}>
+                <h2>{post.person1 + " vs. " + post.person2}</h2>
+                <img src={post.person1img} class="profilepic" alt="person1"></img>
+                <img src={post.person2img} class="profilepic" alt="person2"></img>
+                <h2>{post.topic}</h2>
+                <p>{post.date}</p>
+                <h2 className={"meet"}>{"Meet " + post.person1.split(" ")[0]}</h2>
+                <p className={"bio"}>{post.person1description}</p>
+                <h2 className={"meet"}>{"Meet " + post.person2.split(" ")[0]}</h2>
+                <p className={"bio"}>{post.person2description}</p>
+                <a href="register"> Register </a>
+            </div>
+        )}
         </div>
+        
     )
 }
 

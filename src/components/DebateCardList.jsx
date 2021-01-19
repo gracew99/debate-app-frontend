@@ -1,9 +1,25 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import DebateCard from './DebateCard'
-function DebateCardList(props) {
+import { useParams } from "react-router-dom";
+import axios from '../axios';
+
+function DebateCardList() {
+    let { id } = useParams();
+    const [posts, setPosts] = useState([]);
+
+    useEffect(() => {
+        async function getDebates() {
+            const response = await axios.get('/v2/posts');
+            setPosts(response.data);
+            return response;
+        }
+        getDebates();
+    }, [])
+    
+
     return (
         <div>
-            {props.debates.map((debate) => 
+            {posts.map((debate) => 
                 <DebateCard 
                 person1={debate.person1}
                 person2={debate.person2}

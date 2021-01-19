@@ -2,8 +2,9 @@ import './App.css';
 import DebateCardList from './components/DebateCardList';
 import DebateTopicList from './components/DebateTopicList';
 import DebateDetails from './components/DebateDetails';
-import axios from './axios';
 import React, { useEffect, useState } from "react";
+import { Route, Switch } from 'react-router-dom';
+import Home from './components/Home';
 
 let debate1 = {
   person1: "Jim Connors",
@@ -49,39 +50,34 @@ let topics = ["Healthcare", "Ethics of AI", "Moral Philosophy"]
 let colors = ["AliceBlue", 'CornSilk', 'HoneyDew']
 let detailcolors = ["PapayaWhip", 'MistyRose', 'Thistle']
 
+
 function App() {
   let i = 0;
-    const [posts, setPosts] = useState([]);
-
-    useEffect(()=>{
-      async function fetch() {
-        const response = await axios.get('/v2/posts');
-        setPosts(response.data);
-        return response;
-      }
-      console.log("calling fetch")
-
-      fetch();
-    }, []);
 
 
   return (
     <div className="App">
-      <h1>Upcoming Debates</h1>
-      <DebateTopicList topics={topics} colors={colors}/>
-      <DebateCardList debates={posts}/>
-      {posts.map((debate) => 
-      <DebateDetails 
-        color={detailcolors[i++]}
-        person1={debate.person1}
-        person2={debate.person2}
-        topic={debate.topic}
-        person1img={debate.person1img}
-        person2img={debate.person2img}
-        person1description={debate.person1description}
-        person2description={debate.person2description}
-        date={debate.date}/>
-      )}
+    <Switch>
+      <Route path='/' component={Home} exact/>
+      <Route path='/topics' component={() => <DebateTopicList topics={topics} colors={colors}/>} exact />
+      <Route path='/topics/:id' component={() =><DebateCardList/>} exact />
+      <Route path='/topics/:topicid/details' component={() =><DebateDetails/>} />
+
+    </Switch>
+    {/*  
+    <DebateCardList debates={posts}/>
+    {posts.map((debate) => 
+    <DebateDetails 
+      color={detailcolors[i++]}
+      person1={debate.person1}
+      person2={debate.person2}
+      topic={debate.topic}
+      person1img={debate.person1img}
+      person2img={debate.person2img}
+      person1description={debate.person1description}
+      person2description={debate.person2description}
+      date={debate.date}/>
+    )} */}
     </div>
   );
 }
