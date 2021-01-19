@@ -2,13 +2,15 @@ import './App.css';
 import DebateCardList from './components/DebateCardList';
 import DebateTopicList from './components/DebateTopicList';
 import DebateDetails from './components/DebateDetails';
+import axios from './axios';
+import React, { useEffect, useState } from "react";
 
 let debate1 = {
   person1: "Jim Connors",
   person2: "Stacey McCann",
   topic: "Economic Policy",
   imageUrl: "https://th.bing.com/th/id/OIP.wDPes30CTv6un0dbQ35vRwHaHa?pid=Api&rs=1",
-  date: new Date(2021, 1, 17),
+  date: "1/17/2021",
   color: "aliceblue",
   person1img: "https://blakerobinsonphotography.files.wordpress.com/2010/11/capture0063.jpg",
   person2img: "https://images.squarespace-cdn.com/content/v1/50c95646e4b015d1d5e94d59/1574518630013-LVL1R0KDWHG11MTHX2S2/ke17ZwdGBToddI8pDm48kFcjIIX1FKcdO91v_2sr_2x7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1USW_WVzW7aVXo2Ry4s1rbuMMhsaMdDaYTr6tab37c5BbKULy2O2411SvyKR8oCtcyw/IMA+Select++-+%7C+Anthem+Photography+%7C+wwww.anthem-photo.com+%7C+001.jpg",
@@ -20,7 +22,7 @@ let debate2 = {
   person2: "Natalie Hanson",
   topic: "COVID Reopening Policy",
   imageUrl: "https://samaritanhealth.com/wp-content/uploads/2020/03/Coronavirus-1-1024x1024.jpg",
-  date: new Date(2021, 1, 27),
+  date: "1/17/2021",
   color: "antiquewhite",
   person1img:"https://th.bing.com/th/id/OIP.j_HoYgo3pnM7BI-1eqnQLAHaJS?pid=Api&rs=1",
   person2img: "https://th.bing.com/th/id/OIP.xSI1LuR4vV15f8ryeZjXMQHaLH?pid=Api&rs=1",
@@ -34,7 +36,7 @@ let debate3 = {
   person2: "Glenn Moon",
   topic: "STEM Education",
   imageUrl: "https://th.bing.com/th/id/OIP.BIVf0UNM4A8uG6FqCSyYkAHaFu?pid=Api&rs=1",
-  date: new Date(2020, 11, 17),
+  date: "1/17/2021",
   color:"beige", 
   person1img:"https://th.bing.com/th/id/OIP.-PDJSUVJACoCMS26RFTFbAHaJ4?w=182&h=243&c=7&o=5&pid=1.7",
   person2img: "https://www.eikonphoto.com/wp-content/uploads/2017/03/male-headshot-tie-color-e1515795186596.jpg",
@@ -49,12 +51,26 @@ let detailcolors = ["PapayaWhip", 'MistyRose', 'Thistle']
 
 function App() {
   let i = 0;
+    const [posts, setPosts] = useState([]);
+
+    useEffect(()=>{
+      async function fetch() {
+        const response = await axios.get('/v2/posts');
+        setPosts(response.data);
+        return response;
+      }
+      console.log("calling fetch")
+
+      fetch();
+    }, []);
+
+
   return (
     <div className="App">
       <h1>Upcoming Debates</h1>
       <DebateTopicList topics={topics} colors={colors}/>
-      <DebateCardList debates={debates}/>
-      {debates.map((debate) => 
+      <DebateCardList debates={posts}/>
+      {posts.map((debate) => 
       <DebateDetails 
         color={detailcolors[i++]}
         person1={debate.person1}

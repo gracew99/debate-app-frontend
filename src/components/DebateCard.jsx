@@ -8,7 +8,7 @@ function DebateCard(props) {
             <h2>{props.person1 + " vs. " + props.person2}</h2>
             <h2>{props.topic}</h2>
             <img src={props.imgurl} alt="debate"></img>
-            <p> {props.date.toDateString()}</p>
+            <p> {props.date}</p>
             <a href={currentUrl+"hey"}>View details</a>
         </div>
     )

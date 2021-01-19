@@ -7,7 +7,7 @@ function DebateDetails(props) {
             <img src={props.person1img} class="profilepic" alt="person1"></img>
             <img src={props.person2img} class="profilepic" alt="person2"></img>
             <h2>{props.topic}</h2>
-            <p>{props.date.toDateString()}</p>
+            <p>{props.date}</p>
             <h2 className={"meet"}>{"Meet " + props.person1.split(" ")[0]}</h2>
             <p className={"bio"}>{props.person1description}</p>
             <h2 className={"meet"}>{"Meet " + props.person2.split(" ")[0]}</h2>
