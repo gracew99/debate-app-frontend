@@ -4,14 +4,16 @@ import axios from '../axios'
 
 function DebateDetails() {
 
-
-    let { id } = useParams();
+    // WARNING: must assign to exact param name from Route path 
+    let { topicid, title } = useParams();
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
         async function getDebates() {
-            const response = await axios.get('/v2/posts');
-            console.log(response.data);
+            const url = '/v2/posts/'+topicid+"/"+title;
+            console.log("getting posts " + url);
+
+            const response = await axios.get(url);
             setPosts(response.data);
             return response;
         }
@@ -23,6 +25,8 @@ function DebateDetails() {
         <div>
         {posts.map(post => 
             <div className={"debateDetail"} style={{backgroundColor:post.color}}>
+                <h2>{"Title: " + post.title}</h2>
+
                 <h2>{post.person1 + " vs. " + post.person2}</h2>
                 <img src={post.person1img} class="profilepic" alt="person1"></img>
                 <img src={post.person2img} class="profilepic" alt="person2"></img>
