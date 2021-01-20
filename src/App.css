@@ -1,3 +1,5 @@
+/* https://colorhunt.co/palette/226680 */
+
 html {
   text-align: center;
   background-color: #456268;
@@ -18,8 +20,7 @@ html {
 }
 
 img {
-  width: 25%;
-  height: 25%;
+  width: 20% !important;
 }
 
 .homePage {
@@ -99,7 +100,12 @@ img {
 }
 
 input {
-  margin-left: 25px;
+  margin-left: 25px !important;
+}
+
+
+textarea {
+  margin-left: 25px !important;
 }
 
 .registerDebate {

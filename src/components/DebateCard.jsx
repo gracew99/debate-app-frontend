@@ -4,10 +4,12 @@ import Button from 'react-bootstrap/Button';
 
 function DebateCard(props) {
     let history = useHistory();
-    let {id} = useParams();
+    let {topicName} = useParams();
 
     async function getDetails() {
-        history.push(id+'/'+props.title+'/details');
+        // note: can't access props.key so made dup props.id
+        const url = topicName+'/'+props.id+'/details';
+        history.push(url);
     }
 
     return (

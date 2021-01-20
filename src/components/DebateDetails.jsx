@@ -4,14 +4,14 @@ import axios from '../axios'
 
 function DebateDetails(props) {
     // WARNING: must assign to exact param name from Route path 
-    let { topicid, title } = useParams();
+    let { topicid, id } = useParams();
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
         async function getDebates() {
-            const url = '/v2/posts/'+topicid+"/"+title;
-            console.log("getting posts " + url);
-
+            // TODO: replace topicid with uuid
+            const url = '/v2/debates/'+id;
+            console.log(url);
             const response = await axios.get(url);
             setPosts(response.data);
             return response;
@@ -34,7 +34,7 @@ function DebateDetails(props) {
                 <p className={"bio"}>{post.person1description}</p>
                 <h2 className={"meet"}>{"Meet " + post.person2.split(" ")[0]}</h2>
                 <p className={"bio"}>{post.person2description}</p>
-                <a href="register"> Register </a>
+                <a href="signup"> Sign Up </a>
             </div>
         )}
         </div>

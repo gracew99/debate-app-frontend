@@ -36,38 +36,48 @@ function DebateCreation() {
 
     return (
         <div className="registerDebate">
-            <h1> Register a New Debate!</h1>
+            <h1 className="pageTitle"> Register a New Debate!</h1> <br/>
             <form onSubmit={handleSubmit}>
                 <label>
                 Debater 1 Name: 
-                <input type="text" value={name1}  onChange={(e) => setName1(e.target.value)} />    <br/> <br/>     </label>
+                <input type="text" value={name1}  onChange={(e) => setName1(e.target.value)} />    </label>
+                <br/>
                 <label>
                 Debater 2 Name:
-                <input type="text" value={name2} onChange={(e) => setName2(e.target.value)} />    <br/>  <br/>      </label>
+                <input type="text" value={name2} onChange={(e) => setName2(e.target.value)} />     </label>
+                <br/>
                 <label>
                 Debate Title:
-                <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} />     <br/>  <br/>     </label>
+                <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} />       </label>
+                <br/>
                 <label>
                 Debate Topics:
-                <input type="text" value={topics} onChange={(e) => setTopics(e.target.value)} />    <br/>  <br/>      </label>
+                <input type="text" value={topics} onChange={(e) => setTopics(e.target.value)} />       </label>
+                <br/>
                 <label>
                 Link to Cover Image:
-                <input type="text" value={imgUrl} onChange={(e) => setImgUrl(e.target.value)} />    <br/>  <br/>      </label>
+                <input type="text" value={imgUrl} onChange={(e) => setImgUrl(e.target.value)} />       </label>
+                <br/>
                 <label>
                 Date:
-                <input type="text" value={date} onChange={(e) => setDate(e.target.value)} />    <br/>  <br/>      </label>
+                <input type="text" value={date} onChange={(e) => setDate(e.target.value)} />          </label>
+                <br/>
                 <label>
                 Link to Debater 1 Photo:
-                <input type="text" value={image1} onChange={(e) => setImage1(e.target.value)} />      <br/> <br/>     </label>
+                <input type="text" value={image1} onChange={(e) => setImage1(e.target.value)} />          </label>
+                <br/>
                 <label>
                 Link to Debater 2 Photo:
-                <input type="text" value={image2} onChange={(e) => setImage2(e.target.value)} />     <br/> <br/>      </label>
+                <input type="text" value={image2} onChange={(e) => setImage2(e.target.value)} />      </label>
+                <br/>
                 <label>
                 Debater 1 Description:
-                <input type="text" value={descrip1} onChange={(e) => setDescrip1(e.target.value)} />    <br/> <br/>       </label>
+                <textarea value={descrip1} onChange={(e) => setDescrip1(e.target.value)} />     </label>
+                <br/>
                 <label>
                 Debater 2 Description:
-                <input type="text" value={descrip2} onChange={(e) => setDescrip2(e.target.value)} />     <br/>  <br/>     </label>
+                <textarea value={descrip2} onChange={(e) => setDescrip2(e.target.value)} />         </label>
+                <br/>
                 <input type="submit" value="Submit" />
             </form>
         </div>
