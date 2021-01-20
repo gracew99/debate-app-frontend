@@ -2,8 +2,7 @@ import React, { useState, useEffect} from 'react';
 import {useParams} from "react-router-dom"
 import axios from '../axios'
 
-function DebateDetails() {
-
+function DebateDetails(props) {
     // WARNING: must assign to exact param name from Route path 
     let { topicid, title } = useParams();
     const [posts, setPosts] = useState([]);
@@ -20,11 +19,10 @@ function DebateDetails() {
         getDebates();
     }, [])
     
-
     return (
         <div>
         {posts.map(post => 
-            <div className={"debateDetail"} style={{backgroundColor:post.color}}>
+            <div className={"debateDetail"} style={{backgroundColor:props.colors[0]}}>
                 <h2>{"Title: " + post.title}</h2>
 
                 <h2>{post.person1 + " vs. " + post.person2}</h2>

@@ -5,15 +5,16 @@ import DebateDetails from './components/DebateDetails';
 import DebateCreation from './components/DebateCreation';
 import DebateRegister from './components/DebateRegister';
 
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Route, Switch } from 'react-router-dom';
 import Home from './components/Home';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 // let topics = ["Healthcare", "Ethics of AI", "Moral Philosophy"]
-let colors = ["AliceBlue", 'CornSilk', 'HoneyDew']
-// let detailcolors = ["PapayaWhip", 'MistyRose', 'Thistle']
-
+// let colors = ["AliceBlue", 'CornSilk', 'HoneyDew']
+// let detailColors = ["PapayaWhip", 'MistyRose', 'Thistle']
+let colors = ["#fcf8ec", "#d0e8f2", "#79a3b1", "#456268"]
 
 function App() {
 
@@ -22,8 +23,8 @@ function App() {
     <Switch>
       <Route path='/' component={Home} exact/>
       <Route path='/topics' component={() => <DebateTopicList colors={colors}/>} exact />
-      <Route path='/topics/:id' component={() =><DebateCardList/>} exact />
-      <Route path='/topics/:topicid/:title/details' component={() =><DebateDetails/>}  exact/>
+      <Route path='/topics/:id' component={() =><DebateCardList colors={colors}/>} exact />
+      <Route path='/topics/:topicid/:title/details' component={() =><DebateDetails colors={colors}/>}  exact/>
       <Route path='/topics/:topicid/:title/register' component={() =><DebateRegister/>} exact />
       <Route path='/newDebate' component={() =><DebateCreation/>} />
 

@@ -15,7 +15,7 @@ function DebateTopic(props) {
     }
 
     return (
-        <div class="debatetopic" onClick={getDebates} style={{backgroundColor:props.color}}>
+        <div className="debateTopic" onClick={getDebates} style={{backgroundColor:props.color}}>
             <h2>{props.topic}</h2>
         </div>
     )

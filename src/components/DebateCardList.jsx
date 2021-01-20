@@ -3,13 +3,14 @@ import DebateCard from './DebateCard'
 import { useParams } from "react-router-dom";
 import axios from '../axios';
 
-function DebateCardList() {
+function DebateCardList(props) {
     let { id } = useParams();
     const [posts, setPosts] = useState([]);
-
+    let i = 0;
     useEffect(() => {
         async function getDebates() {
             const response = await axios.get('/v2/debates/'+id);
+            console.log(response.data)
             setPosts(response.data);
             return response;
         }
@@ -19,9 +20,9 @@ function DebateCardList() {
 
     return (
         <div>
-            <h2> Upcoming debates on: {id}</h2>
+            <h2 className="pageTitle"> Upcoming debates on: {id}</h2>
 
-            <h3> View details for more information and to register.</h3>
+            <h3 className="pageSubtitle"> View details for more information and to register.</h3>
 
             {posts.map((debate) => 
                 <DebateCard 
@@ -30,7 +31,7 @@ function DebateCardList() {
                 title={debate.title}
                 imgurl={debate.imageUrl}
                 date={debate.date}
-                color={debate.color} 
+                color={props.colors[(i++)%3]} 
                 /> 
             )}
         </div>

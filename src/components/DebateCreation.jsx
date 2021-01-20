@@ -35,7 +35,7 @@ function DebateCreation() {
     }
 
     return (
-        <div>
+        <div className="registerDebate">
             <h1> Register a New Debate!</h1>
             <form onSubmit={handleSubmit}>
                 <label>
