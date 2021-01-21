@@ -21,11 +21,12 @@ function DebateCreation() {
 
 
     async function handleSubmit() {
+        const topicsArray = topics.split(", ")
         const params = {
             person1: name1,
             person2: name2,  
             title: title, 
-            topics: topics,
+            topics: topicsArray,
             imageUrl: imgUrl, 
             date: date,
             attendees: 0, 
