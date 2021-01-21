@@ -49,7 +49,7 @@ function DebateCreation() {
                     Debater 1 Name: 
                     </Form.Label>
                     <Col sm={4}>
-                    <Form.Control type="text" value={name1} onChange={(e) => setName1(e.target.value)} /> 
+                    <Form.Control type="text" value={name1} placeholder={"First Last"} onChange={(e) => setName1(e.target.value)} /> 
                     </Col>
                 </Form.Group>
                 <Form.Group as={Row}>
@@ -57,7 +57,7 @@ function DebateCreation() {
                     Debater 2 Name:
                     </Form.Label>
                     <Col sm={4}>
-                    <Form.Control type="text" value={name2} onChange={(e) => setName2(e.target.value)} /> 
+                    <Form.Control type="text" value={name2} placeholder={"First Last"} onChange={(e) => setName2(e.target.value)} /> 
                     </Col>
                 </Form.Group>
                 <Form.Group as={Row}>
@@ -65,15 +65,15 @@ function DebateCreation() {
                     Debate Title:
                     </Form.Label>
                     <Col sm={4}>
-                    <Form.Control type="text" value={title} onChange={(e) => setTitle(e.target.value)} /> 
+                    <Form.Control type="text" value={title} placeholder={"Title"} onChange={(e) => setTitle(e.target.value)} /> 
                     </Col>
                 </Form.Group>
                 <Form.Group as={Row}>
                     <Form.Label column sm={4}>
-                    Debate Topics:
+                    Debate Topics 
                     </Form.Label>
                     <Col sm={4}>
-                    <Form.Control type="text" value={topics} onChange={(e) => setTopics(e.target.value)} /> 
+                    <Form.Control type="text" value={topics} placeholder={"Topic1, Topic2, Topic3"} onChange={(e) => setTopics(e.target.value)} /> 
                     </Col>
                 </Form.Group>
                 <Form.Group as={Row}>
@@ -81,7 +81,7 @@ function DebateCreation() {
                     Link to Cover Image:
                     </Form.Label>
                     <Col sm={4}>
-                    <Form.Control type="text" value={imgUrl} onChange={(e) => setImgUrl(e.target.value)} /> 
+                    <Form.Control type="text" value={imgUrl} placeholder={"URL"} onChange={(e) => setImgUrl(e.target.value)} /> 
                     </Col>
                 </Form.Group>
                 <Form.Group as={Row}>
@@ -89,7 +89,7 @@ function DebateCreation() {
                     Date:
                     </Form.Label>
                     <Col sm={4}>
-                    <Form.Control type="text" value={date} onChange={(e) => setDate(e.target.value)} /> 
+                    <Form.Control type="text" value={date} placeholder={"1/1/2021"} onChange={(e) => setDate(e.target.value)} /> 
                     </Col>
                 </Form.Group>
                 <Form.Group as={Row}>
@@ -97,7 +97,7 @@ function DebateCreation() {
                     Link to Debater 1 Photo:
                     </Form.Label>
                     <Col sm={4}>
-                    <Form.Control type="text" value={image1} onChange={(e) => setImage1(e.target.value)} /> 
+                    <Form.Control type="text" value={image1} placeholder={"URL"} onChange={(e) => setImage1(e.target.value)} /> 
                     </Col>
                 </Form.Group>
                 <Form.Group as={Row}>
@@ -105,7 +105,7 @@ function DebateCreation() {
                     Link to Debater 2 Photo:
                     </Form.Label>
                     <Col sm={4}>
-                    <Form.Control type="text" value={image2} onChange={(e) => setImage2(e.target.value)} />
+                    <Form.Control type="text" value={image2} placeholder={"URL"} onChange={(e) => setImage2(e.target.value)} />
                     </Col>
                 </Form.Group>
                 <Form.Group as={Row}>
@@ -113,7 +113,7 @@ function DebateCreation() {
                     Debater 1 Description:
                     </Form.Label>
                     <Col sm={4}>
-                    <Form.Control as="textarea" rows={3} value={descrip1} onChange={(e) => setDescrip1(e.target.value)} />
+                    <Form.Control as="textarea" rows={3} value={descrip1} placeholder={"Lorem ipsum"} onChange={(e) => setDescrip1(e.target.value)} />
                     </Col>
                 </Form.Group>
                 <Form.Group as={Row}>
@@ -121,7 +121,7 @@ function DebateCreation() {
                     Debater 2 Description: 
                     </Form.Label>
                     <Col sm={4}>
-                    <Form.Control as="textarea" rows={3} value={descrip2} onChange={(e) => setDescrip2(e.target.value)} />
+                    <Form.Control as="textarea" rows={3} value={descrip2} placeholder={"Lorem ipsum"} onChange={(e) => setDescrip2(e.target.value)} />
                     </Col>
                 </Form.Group>
 
