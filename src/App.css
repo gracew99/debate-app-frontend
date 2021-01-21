@@ -4,11 +4,32 @@ html {
   text-align: center;
   background-color: #456268;
   color: #456268;
+  margin: 0;
+  height: 100%;
 }
+
+body {
+  margin: 0;
+  height: 100%;
+  background-color: #456268 !important;
+}
+
+#root {
+  height: 100%;
+}
+
 .App {
   text-align: center;
   background-color: #456268;
   color: #456268;
+  height: 100%;
+}
+
+.badge {
+  font-size: 18px !important;
+  position: absolute;
+  right: 0px;
+  top: 0px;
 }
 
 .homeLink {
@@ -50,19 +71,20 @@ img {
 
 .debateCard {
   text-align: center;
-  width: 75%;
+  width: 50%;
   height: 50%;
   margin-left: auto;
   margin-right: auto;
   margin-top: 5%;
   margin-bottom: 5;
-  padding-top: 5%;
-  padding-bottom: 5%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  position: relative;
 }
 
 .debateTopic {
   text-align: center;
-  width: 75%;
+  width: 50%;
   height: 50%;
   margin-left: auto;
   margin-right: auto;
@@ -82,11 +104,21 @@ img {
   border-radius: 50%;
 }
 
+.signUp {
+  margin-top: 10% !important;
+  display: inline-block;
+}
+
+.debateDetailContainer {
+  height: 100%;
+}
+
 .debateDetail {
   text-align: center;
   padding: 5%;
   width: 75%;
   margin: auto;
+  position: relative;
 }
 
 .meet {
