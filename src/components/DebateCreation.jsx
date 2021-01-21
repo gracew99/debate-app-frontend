@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import axios from '../axios'
 import { useHistory } from "react-router-dom";
 import Form from "react-bootstrap/Form"
+import Col from "react-bootstrap/Col"
+import Row from "react-bootstrap/Row"
 
 function DebateCreation() {
 
@@ -42,57 +44,88 @@ function DebateCreation() {
         <div className="registerDebate">
             <h1 className="pageTitle"> Register a New Debate!</h1> <br/>
             <Form onSubmit={handleSubmit}>
-                <Form.Group>
-                    <Form.Label> Debater 1 Name: 
-                        <input type="text" value={name1}  onChange={(e) => setName1(e.target.value)} />    
+                <Form.Group as={Row}>
+                    <Form.Label column sm={4}>
+                    Debater 1 Name: 
                     </Form.Label>
+                    <Col sm={4}>
+                    <Form.Control type="text" value={name1} onChange={(e) => setName1(e.target.value)} /> 
+                    </Col>
                 </Form.Group>
-                <Form.Group>
-                    <Form.Label> Debater 2 Name:
-                        <input type="text" value={name2} onChange={(e) => setName2(e.target.value)} />   
+                <Form.Group as={Row}>
+                    <Form.Label column sm={4}>
+                    Debater 2 Name:
                     </Form.Label>
+                    <Col sm={4}>
+                    <Form.Control type="text" value={name2} onChange={(e) => setName2(e.target.value)} /> 
+                    </Col>
                 </Form.Group>
-                <Form.Group>
-                    <Form.Label> Debate Title:
-                        <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} /> 
+                <Form.Group as={Row}>
+                    <Form.Label column sm={4}>
+                    Debate Title:
                     </Form.Label>
-                </Form.Group>                
-                <Form.Group>
-                    <Form.Label> Debate Topics:
-                        <input type="text" value={topics} onChange={(e) => setTopics(e.target.value)} />  
-                    </Form.Label>
+                    <Col sm={4}>
+                    <Form.Control type="text" value={title} onChange={(e) => setTitle(e.target.value)} /> 
+                    </Col>
                 </Form.Group>
-                <Form.Group>
-                    <Form.Label> Link to Cover Image:
-                        <input type="text" value={imgUrl} onChange={(e) => setImgUrl(e.target.value)} />   
+                <Form.Group as={Row}>
+                    <Form.Label column sm={4}>
+                    Debate Topics:
                     </Form.Label>
+                    <Col sm={4}>
+                    <Form.Control type="text" value={topics} onChange={(e) => setTopics(e.target.value)} /> 
+                    </Col>
                 </Form.Group>
-                <Form.Group>
-                    <Form.Label> Date:
-                        <input type="text" value={date} onChange={(e) => setDate(e.target.value)} /> 
+                <Form.Group as={Row}>
+                    <Form.Label column sm={4}>
+                    Link to Cover Image:
                     </Form.Label>
+                    <Col sm={4}>
+                    <Form.Control type="text" value={imgUrl} onChange={(e) => setImgUrl(e.target.value)} /> 
+                    </Col>
                 </Form.Group>
-                <Form.Group>
-                    <Form.Label> Link to Debater 1 Photo:
-                        <input type="text" value={image1} onChange={(e) => setImage1(e.target.value)} /> 
+                <Form.Group as={Row}>
+                    <Form.Label column sm={4}>
+                    Date:
                     </Form.Label>
+                    <Col sm={4}>
+                    <Form.Control type="text" value={date} onChange={(e) => setDate(e.target.value)} /> 
+                    </Col>
                 </Form.Group>
-                <Form.Group>
-                    <Form.Label> Link to Debater 2 Photo:
-                        <input type="text" value={image2} onChange={(e) => setImage2(e.target.value)} />  
+                <Form.Group as={Row}>
+                    <Form.Label column sm={4}>
+                    Link to Debater 1 Photo:
                     </Form.Label>
+                    <Col sm={4}>
+                    <Form.Control type="text" value={image1} onChange={(e) => setImage1(e.target.value)} /> 
+                    </Col>
                 </Form.Group>
-                <Form.Group>
-                    <Form.Label>  Debater 1 Description:
-                        <textarea value={descrip1} onChange={(e) => setDescrip1(e.target.value)} /> 
+                <Form.Group as={Row}>
+                    <Form.Label column sm={4}>
+                    Link to Debater 2 Photo:
                     </Form.Label>
+                    <Col sm={4}>
+                    <Form.Control type="text" value={image2} onChange={(e) => setImage2(e.target.value)} />
+                    </Col>
                 </Form.Group>
-                <Form.Group>
-                    <Form.Label> Debater 2 Description:
-                        <textarea value={descrip2} onChange={(e) => setDescrip2(e.target.value)} />  
+                <Form.Group as={Row}>
+                    <Form.Label column sm={4}>
+                    Debater 1 Description:
                     </Form.Label>
+                    <Col sm={4}>
+                    <Form.Control as="textarea" rows={3} value={descrip1} onChange={(e) => setDescrip1(e.target.value)} />
+                    </Col>
                 </Form.Group>
-                <input type="submit" value="Submit" />
+                <Form.Group as={Row}>
+                    <Form.Label column sm={4}>
+                    Debater 2 Description: 
+                    </Form.Label>
+                    <Col sm={4}>
+                    <Form.Control as="textarea" rows={3} value={descrip2} onChange={(e) => setDescrip2(e.target.value)} />
+                    </Col>
+                </Form.Group>
+
+                <input className="submit" type="submit" value="Submit" />
             </Form>
         </div>
     )
