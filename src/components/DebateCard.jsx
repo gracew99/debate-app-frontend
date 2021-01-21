@@ -24,7 +24,7 @@ function DebateCard(props) {
     }
 
     return (
-        <div class="debateCard" style={{backgroundColor:props.color}}>
+        <div className="debateCard" style={{backgroundColor:props.color}}>
             {isToday(props.date) &&   
             <Badge className="badge" variant="success"> Happening Today! </Badge>}
 

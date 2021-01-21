@@ -15,12 +15,19 @@ function DebateDetails(props) {
     // WARNING: must assign to exact param name from Route path 
     let { topicid, id } = useParams();
     const [posts, setPosts] = useState([]);
+    const [attendees, setAttendees] = useState(0);
+
+
+    async function handleSignUp() {
+        const url = '/v2/debates/signUp/'+id;
+        const response = await axios.post(url);
+        setAttendees(attendees+1);
+        return response;
+    }
 
     useEffect(() => {
         async function getDebates() {
-            // TODO: replace topicid with uuid
             const url = '/v2/debates/'+id;
-            console.log(url);
             const response = await axios.get(url);
             setPosts(response.data);
             return response;
@@ -28,6 +35,16 @@ function DebateDetails(props) {
         getDebates();
     }, [])
     
+    useEffect(() => {
+        async function getAttendees() {
+            const url = '/v2/debates/signUp/'+id;
+            const response = await axios.get(url);
+            setAttendees(response.data);
+            return response;
+        }
+        getAttendees();
+    }, [])
+
     return (
         <div className={'debateDetailContainer'}>
         {posts.map(post => 
@@ -44,7 +61,9 @@ function DebateDetails(props) {
                 <h4 className={"bio"}>{post.person1description}</h4> <br/>
                 <h1 className={"meet"}>{"Meet " + post.person2.split(" ")[0]}</h1>
                 <h4 className={"bio"}>{post.person2description}</h4>
-                <a href="signup" className="signUp"> Sign Up </a>
+                {attendees === 0 && <h4 className="attendees"> Be the first to sign up! </h4>}
+                {attendees !== 0 && <h4 className="attendees"> {attendees} attending </h4>}
+                <a href="signup" onClick={handleSignUp} className="signUp"> Sign Up </a>
             </div>
         )}
         </div>

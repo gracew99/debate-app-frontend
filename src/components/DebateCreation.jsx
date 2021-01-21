@@ -22,7 +22,7 @@ function DebateCreation() {
             topics: topics,
             imageUrl: imgUrl, 
             date: date,
-            // color: , 
+            attendees: 0, 
             person1img: image1, 
             person2img: image2,  
             person1description: descrip1,  
